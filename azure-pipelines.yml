@@ -157,6 +157,7 @@ stages:
 
           - task: FtpUpload@2
             displayName: 'FTP Upload'
+            retryCountOnTaskFailure: 3
             inputs:
               credentialsOption: 'serviceEndpoint'
               serverEndpoint: $(ftpServerEndpoint)
@@ -187,4 +188,3 @@ stages:
                 } catch {
                   Write-Host "Error deleting app_offline.htm: $_"
                 }
-          
